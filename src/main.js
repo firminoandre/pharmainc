@@ -3,6 +3,7 @@ import { createWebHistory, createRouter,  } from "vue-router";
 import App from './App.vue'
 import './assets/tailwind.css'
 import Dashboard from './components/Dashboard'
+import store from './store'
 
 
 const routes = [
@@ -19,4 +20,4 @@ const router = createRouter({
 });
 
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(store).use(router).mount('#app')
