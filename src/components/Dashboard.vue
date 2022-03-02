@@ -1,218 +1,85 @@
 <template>
-  <div class="bg-gray-900">
-    <div
-      class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
-    >
-      <div class="relative flex items-center justify-between">
-        <a
-          href="/"
-          aria-label="Company"
-          title="Company"
-          class="inline-flex items-center"
-        >
-          <svg
-            class="w-8 text-teal-accent-400"
-            viewBox="0 0 24 24"
-            stroke-linejoin="round"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke="currentColor"
-            fill="none"
-          >
-            <rect x="3" y="1" width="7" height="12"></rect>
-            <rect x="3" y="17" width="7" height="6"></rect>
-            <rect x="14" y="1" width="7" height="6"></rect>
-            <rect x="14" y="11" width="7" height="12"></rect>
-          </svg>
-          <span
-            class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase"
-            >Company</span
-          >
-        </a>
-        <ul class="flex items-center hidden space-x-8 lg:flex">
-          <li>
-            <a
-              href="/"
-              aria-label="Our product"
-              title="Our product"
-              class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >Product</a
-            >
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="Our product"
-              title="Our product"
-              class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >Features</a
-            >
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="Product pricing"
-              title="Product pricing"
-              class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >Pricing</a
-            >
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="About us"
-              title="About us"
-              class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >About us</a
-            >
-          </li>
-        </ul>
-        <ul class="flex items-center hidden space-x-8 lg:flex">
-          <li>
-            <a
-              href="/"
-              class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-              aria-label="Sign up"
-              title="Sign up"
-            >
-              Sign up
-            </a>
-          </li>
-        </ul>
-        <div class="lg:hidden">
-          <button
-            aria-label="Open Menu"
-            title="Open Menu"
-            class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
-            @click="isMenuOpen = true"
-          >
-            <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-              ></path>
-            </svg>
-          </button>
-          <div v-if="isMenuOpen" class="absolute top-0 left-0 w-full">
-            <div class="p-5 bg-white border rounded shadow-sm">
-              <div class="flex items-center justify-between mb-4">
-                <div>
-                  <a
-                    href="/"
-                    aria-label="Company"
-                    title="Company"
-                    class="inline-flex items-center"
-                  >
-                    <svg
-                      class="w-8 text-deep-purple-accent-400"
-                      viewBox="0 0 24 24"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-miterlimit="10"
-                      stroke="currentColor"
-                      fill="none"
-                    >
-                      <rect x="3" y="1" width="7" height="12"></rect>
-                      <rect x="3" y="17" width="7" height="6"></rect>
-                      <rect x="14" y="1" width="7" height="6"></rect>
-                      <rect x="14" y="11" width="7" height="12"></rect>
-                    </svg>
-                    <span
-                      class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
-                      >Company</span
-                    >
-                  </a>
-                </div>
-                <div>
-                  <button
-                    aria-label="Close Menu"
-                    title="Close Menu"
-                    class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                    @click="isMenuOpen = false"
-                  >
-                    <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
-                      <path
-                        fill="currentColor"
-                        d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
-                      ></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <nav>
-                <ul class="space-y-4">
-                  <li>
-                    <a
-                      href="/"
-                      aria-label="Our product"
-                      title="Our product"
-                      class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >Product</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      aria-label="Our product"
-                      title="Our product"
-                      class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >Features</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      aria-label="Product pricing"
-                      title="Product pricing"
-                      class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >Pricing</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      aria-label="About us"
-                      title="About us"
-                      class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >About us</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                      aria-label="Sign up"
-                      title="Sign up"
-                    >
-                      Sign up
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+  <Header/>
+<div class="px-10 py-10">
+
+  <div class="flex flex-col mt-8">
+    <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+            <table class="min-w-full">
+                <thead>
+                    <tr>
+                        <th
+                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                            Nome</th>
+                        <th
+                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                            Genero</th>
+                        <th
+                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                            Nascimento</th>
+                        <th
+                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                            Ver</th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody class="bg-white">
+                    <tr v-for="paciente in pacientes" :key="paciente.id">
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 w-10 h-10">
+                                    <img class="w-10 h-10 rounded-full" src="https://source.unsplash.com/user/erondu"
+                                        alt="admin dashboard ui">
+                                </div>
+
+                                <div class="ml-4">
+                                    <div class="text-sm font-medium leading-5 text-gray-900">
+                                        {{ paciente.name.first }}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                            <div class="text-sm leading-5 text-gray-500">{{ paciente.gender }}</div>
+                        </td>
+
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                            <div class="text-sm leading-5 text-gray-500">{{ new Date(paciente.dob.date).toISOString().slice(0, 10)  }}</div>
+                        </td>
+
+                        <td
+                            class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                            <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+</div>
 </template>
 <script>
-
+import Header from './Header.vue'
 export default {
+  components: {
+    Header
+  },
   data() {
     return {
-      isMenuOpen: false,
+      
     };
   },
+  computed: {
+    pacientes(){
+      return this.$store.state.pacientes
+    }
+  },
+  mounted(){
+    this.$store.dispatch("getPacientes")
+  }
 };
 </script>
