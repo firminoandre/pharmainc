@@ -1,10 +1,12 @@
 import axios from 'axios'
 
-export const getPacientes = ({ commit }, gender) => {
+export const getPacientes = ({ commit }, page, gender) => {
     axios.get('https://randomuser.me/api/', { 
-        params: { 
-            results: 50,
-            gender: gender
+        params: {
+            page: page, 
+            results: 20,
+            gender: gender,
+            seed: 'abc'
         } 
 
     })
