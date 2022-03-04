@@ -18,25 +18,12 @@
       <p class="mb-6 text-base font-thin tracking-wide text-gray-300 md:text-lg">
         Utilize a barra de pesquisa para filtrar os pacientes exibidos
       </p>
-      <form class="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
-        <input
-          placeholder="Digite o nome"
-          required=""
-          type="text"
-          class="flex-grow w-full h-12 px-4 mb-3 text-white transition duration-200 bg-transparent border-2 border-gray-400 rounded appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-200 focus:outline-none focus:shadow-outline"
-        />
-        <button
-          type="submit"
-          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-red-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-        >
-            Buscar
-        </button>
-      </form>
+      
       <p class="max-w-md mb-10 text-xs font-thin tracking-wide text-gray-500 sm:text-sm sm:mx-auto md:mb-16">
         Certifique-se de que este paciente esteja cadastrado em nosso sistema!
       </p>
       <a
-        href="/"
+        href="#table"
         aria-label="Scroll down"
         class="flex items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
       >
