@@ -26,7 +26,7 @@
       </div>
     </div>
 </div>
-  <div class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+  <div id="table" class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
     <div class="max-w-screen-sm sm:text-center sm:mx-auto">
       <a href="/" aria-label="View" class="inline-block mb-5 rounded-full sm:mx-auto">
         <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
@@ -37,15 +37,22 @@
         Todos os resultados encontrados
       </h2>
       <hr class="w-full my-8 border-gray-300" />
-       <AppFormSelect :list="genders" v-model="genderSelected"/>
+      <div class="inline-grid grid-cols-3 gap-4">
+        <AppFormSelect :list="genders" :titulo="'Selecione um gênero'" v-model="genderSelected"/>
+        <AppFormSelect :list="[{'value': '10', 'name': '10'}, {'value': '20', 'name': '20'}, {'value': '50', 'name': '50'}]" :titulo="'disabled?'" v-model="resultsPerPage" disabled/>
+        <AppFormSelect :list="[{'value': '1', 'name': '1'}, {'value': '2', 'name': '2'}, {'value': '3', 'name': '3'}]" :titulo="'Página'" v-model="pageSelect"/>
+      </div>
+       
       <button @click.prevent="filter" class="mt-4 md:mb-0 bg-red-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-500">Buscar</button>
       
     </div>
   </div>
   <div class="flex flex-col">
     <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+      
         <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-            <table class="min-w-full">
+          
+            <table  class="min-w-full">
                 <thead>
                     <tr>
                         <th
@@ -82,7 +89,7 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <div class="text-sm leading-5 text-gray-500">{{ paciente.gender }}</div>
+                            <div class="text-sm leading-5 text-gray-500">{{ paciente.gender === 'male' ? 'Masculino' : 'Feminino'}}</div>
                         </td>
 
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -98,15 +105,17 @@
                     </tr>
                 </tbody>
             </table>
+            
         </div>
+        
     </div>
+    
 </div>
 </div>
 </template>
 <script>
 import Header from './Header.vue'
 import AppFormSelect from './Ui/AppFormSelect.vue'
-
 
 
 const genders = [{
@@ -129,7 +138,8 @@ export default {
       modal: false,
       idModal: '',
       genderSelected: '',
-      genders
+      pageSelect: '',
+      genders,
     };
   },
   methods: {
@@ -140,7 +150,7 @@ export default {
     },
 
     filter(){
-      this.$store.dispatch("getPacientes", this.genderSelected)
+      this.$store.dispatch("getPacientes", this.pageSelect, this.genderSelected)
     }
   },
   computed: {
